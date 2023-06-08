@@ -10,7 +10,7 @@ const Dashboard = () => {
 <div className="drawer lg:drawer-open">
   <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
   <div className="drawer-content flex flex-col items-center justify-center">
-  <h2 className='text-4xl'>Dashboard</h2>
+  
     <Outlet></Outlet>
     <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
   
@@ -20,8 +20,8 @@ const Dashboard = () => {
     <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
       {/* Sidebar content here */}
       <li><NavLink to='/dashboard'>Home</NavLink></li>
-            <li><NavLink to='/dashboard/manageClass'>Manage Users</NavLink></li>
-           <li><NavLink to='/dashboard/manageUser'>Manage Classes</NavLink></li>
+            <li><NavLink to='/dashboard/manageUser'>Manage Users</NavLink></li>
+           <li><NavLink to='/dashboard/manageClass'>Manage Classes</NavLink></li>
 
            <li><NavLink to='/dashboard'>Home</NavLink></li>
             <li><NavLink to='/dashboard/addClass'>Add a Class</NavLink></li>
