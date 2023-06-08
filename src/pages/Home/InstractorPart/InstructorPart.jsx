@@ -10,9 +10,9 @@ const InstructorPart = () => {
             .then(res => res.json())
             .then(data => {
                 setInstructors(data)
-                console.log(data)
+               
                 setLoading(false);
-                console.log(instructors);
+              
             });
     }, [])
 
