@@ -3,10 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
- a.active {
-    color: white
+.drawer-side a.active {
+    color: blue
 }
 
-a.active {
+.drawer-side a.active {
     background-color: transparent;
 }
