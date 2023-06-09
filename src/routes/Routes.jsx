@@ -12,6 +12,7 @@ import AddClass from "../pages/Dashboard/Instructor/AddClass";
 import MyClass from "../pages/Dashboard/Instructor/MyClass";
 import EnrolledClass from "../pages/Dashboard/Student/EnrolledClass";
 import SelectedClass from "../pages/Dashboard/Student/SelectedClass";
+import Classes from "../pages/Classes/Classes";
 
 
  export const router = createBrowserRouter([
@@ -26,6 +27,10 @@ import SelectedClass from "../pages/Dashboard/Student/SelectedClass";
           {
             path: 'instructor',
             element: <Instructor></Instructor>
+          },
+          {
+            path: 'classes',
+            element: <Classes></Classes>
           },
           {
             path: 'login',

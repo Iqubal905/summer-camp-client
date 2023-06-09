@@ -16,7 +16,7 @@ const Instructor = () => {
     }, [])
     return (
        <div>
-        <h2 className='font-bold text-center text-3xl pt-24 pb-8' >All Instructor</h2>
+        <h2 className='font-bold text-center text-3xl pt-24 pb-8  ' >All Instructor</h2>
          <div className='grid grid-cols-3 gap-10 px-20'>
             
             {
