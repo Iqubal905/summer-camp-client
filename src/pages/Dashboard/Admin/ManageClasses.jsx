@@ -1,4 +1,5 @@
 import React, {  useEffect, useState } from 'react';
+import Swal from 'sweetalert2';
 
 
 
@@ -17,6 +18,50 @@ const ManageClasses = () => {
     }, []);
   
     
+
+
+
+    const handleApprove = classData =>{
+        fetch(`http://localhost:5000/myclass/status/${classData._id}`,{
+         method: 'PATCH'
+     })
+     .then(res => res.json())
+     .then(data => {
+         if(data.modifiedCount){
+             
+         Swal.fire({
+              position: 'top-end',
+              icon: 'success',
+              title: 'Class Approve',
+              showConfirmButton: false,
+              timer: 1500
+     })
+     
+         }
+     })
+     }
+
+
+     const handleDenied = classData =>{
+        fetch(`http://localhost:5000/myclass/denied/${classData._id}`,{
+         method: 'PATCH'
+     })
+     .then(res => res.json())
+     .then(data => {
+         if(data.modifiedCount){
+             
+         Swal.fire({
+              position: 'top-end',
+              icon: 'success',
+              title: 'Class Denied',
+              showConfirmButton: false,
+              timer: 1500
+     })
+     
+         }
+     })
+     }
+
 
 
 
@@ -66,16 +111,14 @@ const ManageClasses = () => {
                 <td>${classData.price}</td>
                 <td>{classData.availableSeats}</td>
                 <td>{classData.status}</td>
-                <td><button className="btn btn-success">Approve</button></td>
-                <td><button className="btn btn-warning">Deny</button></td>
-                <td><button className="btn btn-info">Feedback</button></td>
+
+            <td><button  onClick={() =>handleApprove(classData)} className="btn btn-success">Approve</button></td>
+            <td><button onClick={() =>handleDenied(classData)} className="btn btn-warning">Deny</button></td>
+
+            <td><button className="btn btn-info">Feedback</button></td>
               </tr>
       )
   }
-  
-  
-  
-  
   
             </tbody>
         

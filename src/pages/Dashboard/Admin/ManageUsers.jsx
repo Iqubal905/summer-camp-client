@@ -55,13 +55,13 @@ const handleMakeInstructor = user =>{
 
     return (
         <div>
-            <h2 className='text-3xl'>Total User :{users.length}</h2>
-
+            <h2 className="text-4xl font-bold text-center ">Total User :{users.length}</h2>
+            <div className="divider"></div> 
             <div className="overflow-x-auto">
-  <table className="table">
+  <table className="table bg-slate-500 text-white">
     
     <thead>
-      <tr>
+      <tr className=" text-sm  bg-slate-800 text-slate-200">
         <th>No</th>
         <th>Name</th>
         <th>Email</th>
