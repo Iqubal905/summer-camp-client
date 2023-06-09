@@ -50,17 +50,15 @@ const SignUp = () => {
                             title: 'Register Successful.',
                                 showClass: {
                                  popup: 'animate__animated animate__fadeInDown'
-                                },
-                                     hideClass: {
-                                      popup: 'animate__animated animate__fadeOutUp'
+                                       },
+                                 hideClass: {
+                                popup: 'animate__animated animate__fadeOutUp'
                                         }
                                        });
                                   navigate('/');
                       }
                     })
                       
-
-                  console.log('user profile info updated')
               
               })
               .catch(error => console.log(error))
@@ -70,18 +68,6 @@ const SignUp = () => {
     
       }
     };
-
-
-
-  //   Swal.fire({
-  //     title: 'Register Successful.',
-  //     showClass: {
-  //         popup: 'animate__animated animate__fadeInDown'
-  //     },
-  //     hideClass: {
-  //         popup: 'animate__animated animate__fadeOutUp'
-  //     }
-  // });
 
 
     return (
