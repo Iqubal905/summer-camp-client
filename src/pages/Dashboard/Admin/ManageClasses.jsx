@@ -1,10 +1,84 @@
-import React from 'react';
+import React, {  useEffect, useState } from 'react';
+
 
 const ManageClasses = () => {
+   
+    const [classesData, setClassesData] = useState([]);
+    const [loading, setLoading] = useState(true);
+    useEffect(() => {
+      fetch("http://localhost:5000/myclass")
+        .then((res) => res.json())
+        .then((data) => {
+          setClassesData(data);
+          console.log(data);
+          setLoading(false);
+        });
+    }, []);
+  
+    
+
+
+
     return (
         <div>
-            <h2 className='text-3xl'>Manage class</h2>
+        <h2 className="text-4xl font-bold text-center "> My Total Class : {classesData.length}</h2>
+        <div className="divider"></div> 
+        <div className="overflow-x-auto">
+          <table className="table">
+            {/* head */}
+            <thead>
+              <tr className=" text-sm  bg-slate-800 text-slate-200">
+                <th>No</th>
+  
+                <th>Image</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>
+                  Available <br /> seats
+                </th>
+                <th>
+                  Enrolled <br /> seats
+                </th>
+                <th>Status</th>
+                <th>Update</th>
+                <th>Feedback</th>
+              </tr>
+            </thead>
+            <tbody>
+  
+  {
+      classesData.map((classData, index) =>
+          <tr key={classData._id} >
+  
+                <td className=" text-lg ">{index + 1}</td>
+                 <td>
+                  <div className="mask mask-squircle   w-24 h-12">
+                    <img
+                      src={classData.image}
+                      alt="Avatar Tailwind CSS Component"
+                    />
+                  </div>
+                </td>
+              <td>{classData.className}</td>
+                <td>${classData.price}</td>
+                <td>{classData.availableSeats}</td>
+                <td>00</td>
+                <td>{classData.status}</td>
+                <td><button className="btn btn-success">Update</button></td>
+                <td><button className="btn btn-warning">Feedback</button></td>
+              </tr>
+      )
+  }
+  
+  
+  
+  
+  
+            </tbody>
+        
+          </table>
         </div>
+      </div>
     );
 };
 
