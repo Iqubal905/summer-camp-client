@@ -1,21 +1,30 @@
 import React, {  useEffect, useState } from 'react';
+import { useQuery } from 'react-query';
 import Swal from 'sweetalert2';
 
 
 
 const ManageClasses = () => {
+
+    const {data: classesData = [], refetch} = useQuery(['classesData'], async() => {
+        const res =  await fetch('http://localhost:5000/myclass')
+        return res.json()
+    })
   
-    const [classesData, setClassesData] = useState([]);
-    const [loading, setLoading] = useState(true);
-    useEffect(() => {
-      fetch("http://localhost:5000/myclass")
-        .then((res) => res.json())
-        .then((data) => {
-          setClassesData(data);
-          console.log(data);
-          setLoading(false);
-        });
-    }, []);
+
+
+  
+    // const [classesData, setClassesData] = useState([]);
+    // const [loading, setLoading] = useState(true);
+    // useEffect(() => {
+    //   fetch("http://localhost:5000/myclass")
+    //     .then((res) => res.json())
+    //     .then((data) => {
+    //       setClassesData(data);
+    //       console.log(data);
+    //       setLoading(false);
+    //     });
+    // }, []);
   
     
 
@@ -28,7 +37,7 @@ const ManageClasses = () => {
      .then(res => res.json())
      .then(data => {
          if(data.modifiedCount){
-             
+            refetch()
          Swal.fire({
               position: 'top-end',
               icon: 'success',
@@ -49,7 +58,7 @@ const ManageClasses = () => {
      .then(res => res.json())
      .then(data => {
          if(data.modifiedCount){
-             
+            refetch()
          Swal.fire({
               position: 'top-end',
               icon: 'success',
