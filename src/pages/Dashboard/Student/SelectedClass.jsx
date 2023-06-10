@@ -1,25 +1,50 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useQuery } from 'react-query';
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../provider/AuthProvider';
 
 const SelectedClass = () => {
 
-    const {data: selectClasses = [], refetch} = useQuery(['selectClasses'], async() => {
-        const res =  await fetch('http://localhost:5000/mybooked')
-        return res.json()
+  const {user} =useContext(AuthContext)
+
+//     const {data: selectClasses = [], refetch} = useQuery(['selectClasses'], async() => {
+//         const res =  await fetch('http://localhost:5000/mybooked')
+//         return res.json()
+//     })
+   
+// console.log(selectClasses);
+
+ const token = localStorage.getItem('access-token')
+ 
+  const { refetch, data: selectClasses = [] } = useQuery({
+      queryKey: ['mybooked', user?.email],
+      
+      queryFn: async () => {
+          const res = await fetch(`http://localhost:5000/mybooked?email=${user?.email}
+          `
+          , { headers:{
+                 authorization:`bearer ${token}`
+              }
+          }
+          ) 
+          return res.json();
+        },
+
     })
+  
+
 
 console.log(selectClasses);
 
 
- 
+
+
 
 const handleDelete = () =>{
      
 }
 
-const handlePay = () =>{
-       
-}
+
 
 
 
@@ -38,15 +63,15 @@ const handlePay = () =>{
                 <th>Image</th>
                 <th>Class Name</th>
                 <th>Instructor <br /> Name</th>
-                <th>Instructor Email</th>
+               
                 <th>Price</th>
                 <th>
                   Available <br /> seats
                 </th>
-                <th>Status</th>
-                <th>Approve</th>
-                <th>Deny</th>
-                <th>Send <br />Feedback</th>
+               
+                <th>Payment</th>
+                <th>Delete</th>
+               
               </tr>
             </thead>
             <tbody>
@@ -66,15 +91,13 @@ const handlePay = () =>{
                 </td>
               <td>{selectClass.className}</td>
               <td>{selectClass.instructorName}</td>
-              <td>{selectClass.instructorEmail}</td>
-                <td>${selectClass.price}</td>
+              <td>${selectClass.price}</td>
                 <td>{selectClass.availableSeats}</td>
-                <td>{selectClass.status}</td>
+               
 
-            <td><button  onClick={() =>handleDelete(selectClass)} className="btn btn-success">Approve</button></td>
-            <td><button onClick={() =>handlePay(selectClass)} className="btn btn-warning">Deny</button></td>
+            <td><Link to={`/dashboard/payment?value=${selectClass.price}`}><button  className="btn btn-success">Pay</button></Link></td>
+            <td><button onClick={() =>handleDelete(selectClass)} className="btn btn-warning">Delete</button></td>
 
-            <td><button className="btn btn-info">Feedback</button></td>
               </tr>
       )
   }

@@ -10,12 +10,16 @@ const MyClass = () => {
     fetch("http://localhost:5000/myclass")
       .then((res) => res.json())
       .then((data) => {
-        setClassesData(data);
+        setClassesData(data)
+        console.log(data);
         setLoading(false);
       });
   }, []);
 
-  const myDatas = classesData.filter((classData) => classData.instructorEmail === user?.email);
+
+  const myDatas = classesData?.filter((classData) => classData.instructorEmail === user?.email);
+   
+  
 
   return (
     <div>

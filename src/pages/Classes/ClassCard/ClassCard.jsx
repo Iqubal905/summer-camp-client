@@ -1,11 +1,14 @@
 import React from 'react';
+import { useContext } from 'react';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../../../provider/AuthProvider';
 
 const ClassCard = ({approveClass}) => {
+    const {user} =useContext(AuthContext)
     const {className,  instructorName, availableSeats, price, image} = approveClass 
    console.log(approveClass);
 
-   const newBooked = {className, instructorName, availableSeats: parseFloat(availableSeats), price: parseFloat(price), image}
+   const newBooked = {className, instructorName, email:user.email, availableSeats: parseFloat(availableSeats), price: parseFloat(price), image}
    console.log(newBooked);
 
 
