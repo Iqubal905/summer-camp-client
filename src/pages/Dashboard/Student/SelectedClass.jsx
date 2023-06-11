@@ -40,6 +40,7 @@ console.log(selectClasses);
 
 
 
+
 const handleDelete = () =>{
      
 }
@@ -47,11 +48,10 @@ const handleDelete = () =>{
 
 
 
-
     return (
         <div>
              <div>
-        <h2 className="text-4xl font-bold text-center "> Total Class : {selectClasses.length}</h2>
+        <h2 className="text-4xl font-bold text-center "> All Selected  Class : {selectClasses.length}</h2>
         <div className="divider"></div> 
         <div className="overflow-x-auto">
           <table className="table">
@@ -69,37 +69,44 @@ const handleDelete = () =>{
                   Available <br /> seats
                 </th>
                
+                
                 <th>Payment</th>
                 <th>Delete</th>
                
               </tr>
             </thead>
             <tbody>
+              
   
   {
-      selectClasses.map((selectClass, index) =>
-          <tr key={selectClass._id} >
-  
-                <td className=" text-lg ">{index + 1}</td>
-                 <td>
-                  <div className="mask mask-squircle   w-24 h-12">
-                    <img
-                      src={selectClass.image}
-                      alt="Avatar Tailwind CSS Component"
-                    />
-                  </div>
-                </td>
-              <td>{selectClass.className}</td>
-              <td>{selectClass.instructorName}</td>
-              <td>${selectClass.price}</td>
-                <td>{selectClass.availableSeats}</td>
-               
 
-            <td><Link to={`/dashboard/payment?value=${selectClass.price}`}><button  className="btn btn-success">Pay</button></Link></td>
-            <td><button onClick={() =>handleDelete(selectClass)} className="btn btn-warning">Delete</button></td>
 
-              </tr>
-      )
+
+      selectClasses?.map((selectClass, index) =>
+      <tr key={selectClass._id} >
+
+            <td className=" text-lg ">{index + 1}</td>
+             <td>
+              <div className="mask mask-squircle   w-24 h-12">
+                <img
+                  src={selectClass.image}
+                  alt="Avatar Tailwind CSS Component"
+                />
+              </div>
+            </td>
+          <td>{selectClass.className}</td>
+          <td>{selectClass.instructorName}</td>
+          <td>${selectClass.price}</td>
+            <td>{selectClass.availableSeats}</td>
+          
+           
+          {/* <td><Link to='/dashboard/payment'> pay test</Link></td> */}
+        <td><Link to={`/dashboard/payment?value=${selectClass.price}&id=${selectClass._id}&name=${selectClass.className}`}><button  className="btn btn-success">Pay</button></Link></td>
+        <td><button onClick={() =>handleDelete(selectClass)} className="btn btn-warning">Delete</button></td>
+
+    
+          </tr>
+  )
   }
   
             </tbody>

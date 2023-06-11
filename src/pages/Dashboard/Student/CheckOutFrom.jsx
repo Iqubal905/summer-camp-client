@@ -6,7 +6,7 @@ import { AuthContext } from '../../../provider/AuthProvider';
 const CheckOutFrom = ({price}) => {
     const stripe = useStripe()
     const elements = useElements()
-    const [clientSecret, setClientSecret] = useState(' ')
+    const [clientSecret, setClientSecret] = useState('')
     const [cardError, setCardError] = useState()
     const {user} =useContext(AuthContext)
 
@@ -17,31 +17,50 @@ console.log(price);
 
 useEffect(() => {
   console.log(price);
-  if (price > 0) {
-  // axiosSecure.post('/create-payment-intent', { price })
-  //     .then(res => {
-  //         console.log(res.data.clientSecret)
-  //         setClientSecret(res.data.clientSecret);
-  //     })
+//   if (price > 0) {
 
 
-fetch('http://localhost:5000/create-payment-intent', {
-        method: 'POST', 
-        headers: {
-            'content-type': 'application/json'
-        }, 
-        body: JSON.stringify(price)
-    })
-    .then(res => res.json())
-    .then(data => {
-        console.log(data);
+//   // axiosSecure.post('/create-payment-intent', { price })
+//   //     .then(res => {
+//   //         console.log(res.data.clientSecret)
+//   //         setClientSecret(res.data.clientSecret);
+//   //     })
+
+
+// fetch('http://localhost:5000/create-payment-intent', {
+//         method: 'POST', 
+//         headers: {
+//             'content-type': 'application/json'
+//         }, 
+//         body: JSON.stringify(price)
+//     })
+//     .then(res => res.json())
+//     .then(data => {
+//       setClientSecret(data.clientSecret)
+//         console.log(data.clientSecret);
        
-    })
+//     })
+//     }
+
+fetch("/create-payment-intent", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(price),
+})
+  .then((res) => res.json())
+  .then((data) => setClientSecret(data.clientSecret));
+}, []);
 
 
 
-    }
-}, [])
+
+
+
+
+
+
+
+
 
 
 const handleSubmit = async (event) => {
@@ -68,7 +87,6 @@ else{
     console.log('payment method', paymentMethod);
 }
 
-
 const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(
   clientSecret,
   {
@@ -85,18 +103,9 @@ const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(
 if (confirmError) {
   console.log(confirmError);
 }
-
-console.log('payment intent', paymentIntent)
-
-
-
-
+ console.log('payment intent', paymentIntent)
 
 }
-
-
-
-
 
     return (
         <div>
@@ -117,7 +126,7 @@ console.log('payment intent', paymentIntent)
             },
           }}
         />
-        <button className="btn btn-primary btn-sm mt-4" type="submit" disabled={!stripe || !clientSecret }>
+        <button className="btn btn-primary btn-sm mt-4" type="submit" disabled={!stripe }>
         Pay
       </button>
       </form>

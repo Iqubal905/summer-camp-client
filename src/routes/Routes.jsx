@@ -13,7 +13,7 @@ import MyClass from "../pages/Dashboard/Instructor/MyClass";
 import EnrolledClass from "../pages/Dashboard/Student/EnrolledClass";
 import SelectedClass from "../pages/Dashboard/Student/SelectedClass";
 import Classes from "../pages/Classes/Classes";
-import Payment from "../pages/Dashboard/Student/Payment";
+import Payment from "../pages/Payment/Payment";
 
 
  export const router = createBrowserRouter([
