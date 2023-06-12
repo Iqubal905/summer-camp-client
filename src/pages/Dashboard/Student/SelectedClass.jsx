@@ -5,8 +5,7 @@ import { AuthContext } from '../../../provider/AuthProvider';
 
 const SelectedClass = () => {
 
-  const {user} =useContext(AuthContext)
-
+  const {user, loading} =useContext(AuthContext)
 //     const {data: selectClasses = [], refetch} = useQuery(['selectClasses'], async() => {
 //         const res =  await fetch('http://localhost:5000/mybooked')
 //         return res.json()
@@ -18,7 +17,7 @@ const SelectedClass = () => {
  
   const { refetch, data: selectClasses = [] } = useQuery({
       queryKey: ['mybooked', user?.email],
-      
+      enabled: !loading,
       queryFn: async () => {
           const res = await fetch(`http://localhost:5000/mybooked?email=${user?.email}
           `

@@ -2,7 +2,13 @@ import React, { useContext } from 'react';
 import img from '../../assets/slider/sigi in.webp'
 import { Link} from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
+
+
+
 const Navbar = () => {
+
+
+
 
 const {logOut, user} = useContext(AuthContext)
 

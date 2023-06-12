@@ -2,13 +2,15 @@ import React from 'react';
 import { useContext } from 'react';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../../provider/AuthProvider';
+import { Link, Navigate } from 'react-router-dom';
+import Login from '../../Login/Login';
 
 const ClassCard = ({approveClass}) => {
     const {user} =useContext(AuthContext)
     const {className,  instructorName, availableSeats, price, image} = approveClass 
    console.log(approveClass);
 
-   const newBooked = {className, instructorName, email:user.email, availableSeats: parseFloat(availableSeats), price: parseFloat(price), image}
+   const newBooked = {className, instructorName, email:user?.email, availableSeats: parseFloat(availableSeats), price: parseFloat(price), image}
    console.log(newBooked);
 
 
@@ -44,7 +46,12 @@ const handlebooked = () =>{
     <p className='text-xl'> <span className=' font-bold pr-2'>Instructor Name:</span>{instructorName}</p>
     <p className='text-xl'> <span className=' font-bold pr-2'>Price:</span>${price}</p>
     <p className='text-xl'><span className='font-bold pr-2'>Available Seats:</span>{availableSeats}</p>
-    <button onClick={()=>handlebooked()} className="btn btn-outline btn-success btn-sm">Select</button>
+   {
+    user?
+    <button onClick={()=>handlebooked()} className="btn btn-outline btn-success btn-sm">Select</button> :
+  <Link className='btn btn-outline btn-success btn-sm' to='/login'><button className="">Select</button></Link>
+    
+   }
   </div>
 </div>
         </div>
