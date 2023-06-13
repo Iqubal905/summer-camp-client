@@ -121,14 +121,14 @@ const SignUp = () => {
   <label className="label">
     <span className="label-text">Confirm Pasword</span>
   </label>
-  <input type="text" {...register("conPass", { required: true })} name="conPass" placeholder="Phone Number" className="input input-bordered w-full max-w-xs" />
+  <input type="text" {...register("conPass", { required: true })} name="conPass" placeholder="Confirm Password" className="input input-bordered w-full max-w-xs" />
     <h2 className=' text-red-400 text-2xl'>{conPass}</h2>
   </div>
   <div className="form-control w-full ">
   <label className="label">
     <span className="label-text">Photo Url</span>
   </label>
-  <input type="text" {...register("photoUrl", { required: true })} name="photoUrl" placeholder="Phone Number" className="input input-bordered w-full max-w-xs" />
+  <input type="url" {...register("photoUrl", { required: true })} name="photoUrl" placeholder="Photo Url" className="input input-bordered w-full max-w-xs" />
   </div>
  
  

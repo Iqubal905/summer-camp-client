@@ -9,11 +9,14 @@ import useInstructorr from '../../../hooks/useInstructorr';
 
 const ClassCard = ({approveClass}) => {
     const {user} =useContext(AuthContext)
-     const{isAdmin} = useAdmin()
-     const {isInstructor} = useInstructorr()
+    
+    const [isAdmin] = useAdmin()
+    const [isInstructor] = useInstructorr()
 
 
+console.log( isAdmin, isInstructor);
     const {className,  instructorName, availableSeats, price, image} = approveClass 
+
    console.log(approveClass);
 
    const newBooked = {className, instructorName, email:user?.email, availableSeats: parseFloat(availableSeats), price: parseFloat(price), image}
@@ -57,7 +60,7 @@ const handlebooked = () =>{
 
    {
     user?
-    <button onClick={()=>handlebooked()} className="btn btn-outline btn-success btn-sm"   disabled={!isAdmin || !isInstructor || availableSeats == 0 } >Select</button> :
+    <button onClick={()=>handlebooked()} className="btn btn-outline btn-success btn-sm"   disabled={isAdmin || isInstructor || availableSeats == 0 } >Select</button> :
   <Link className='btn btn-outline btn-success btn-sm' to='/login'><button className="">Select</button></Link>
     
    }

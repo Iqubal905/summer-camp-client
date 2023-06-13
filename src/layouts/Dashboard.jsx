@@ -9,7 +9,7 @@ const Dashboard = () => {
   const [isAdmin] = useAdmin()
   const [isInstructor] = useInstructorr()
 
-
+console.log(isAdmin,isInstructor );
 
 
     return (

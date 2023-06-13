@@ -9,7 +9,7 @@ const AddClass = () => {
 const {user} = useContext(AuthContext)
 console.log(user);
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
    const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`
 
     const onSubmit = data => {
@@ -43,6 +43,7 @@ formData.append('image', data.image[0])
     .then(data => {
         console.log(data);
         if(data.insertedId){
+          reset()
             Swal.fire('Class successfully added')
         }
     })

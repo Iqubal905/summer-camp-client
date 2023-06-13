@@ -71,7 +71,7 @@ const navItems = <>
   <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
         <div className="w-24 rounded-full">
         
-        <img src={user.photoURL} alt="" />
+        <img src={user.photoURL} referrerPolicy='no-referrer' alt="" />
         </div>
       </label>
   </div>

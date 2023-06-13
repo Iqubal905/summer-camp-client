@@ -60,11 +60,11 @@ import AdminRoute from "./adminRoute";
           },
           {
             path: 'addClass',
-            element: <InstructorRoute><AddClass></AddClass></InstructorRoute>
+            element: <AddClass></AddClass>
           },
           {
             path: 'myClass',
-            element: <InstructorRoute><MyClass></MyClass></InstructorRoute>
+            element: <MyClass></MyClass>
           },
           {
             path: 'payment',
