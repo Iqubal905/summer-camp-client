@@ -7,7 +7,7 @@ const SelectedClass = () => {
 
   const {user, loading} =useContext(AuthContext)
 //     const {data: selectClasses = [], refetch} = useQuery(['selectClasses'], async() => {
-//         const res =  await fetch('http://localhost:5000/mybooked')
+//         const res =  await fetch('https://summer-camp-school-server-side-pi.vercel.app/mybooked')
 //         return res.json()
 //     })
    
@@ -19,7 +19,7 @@ const SelectedClass = () => {
       queryKey: ['mybooked', user?.email],
       enabled: !loading,
       queryFn: async () => {
-          const res = await fetch(`http://localhost:5000/mybooked?email=${user?.email}
+          const res = await fetch(`https://summer-camp-school-server-side-pi.vercel.app/mybooked?email=${user?.email}
           `
           , { headers:{
                  authorization:`bearer ${token}`

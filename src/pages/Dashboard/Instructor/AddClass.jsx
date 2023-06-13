@@ -32,7 +32,7 @@ formData.append('image', data.image[0])
       const newItem = {className, instructorName, instructorEmail, availableSeats: parseFloat(availableSeats), price: parseFloat(price), image:imgUrl, status:'Pending'}
       console.log(newItem);
 
-      fetch('http://localhost:5000/class', {
+      fetch('https://summer-camp-school-server-side-pi.vercel.app/class', {
         method: 'POST', 
         headers: {
             'content-type': 'application/json'

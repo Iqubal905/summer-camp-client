@@ -24,7 +24,7 @@ console.log( isAdmin, isInstructor);
 
 const handlebooked = () =>{
 
-    fetch('http://localhost:5000/booked', {
+    fetch('https://summer-camp-school-server-side-pi.vercel.app/booked', {
         method: 'POST', 
         headers: {
             'content-type': 'application/json'

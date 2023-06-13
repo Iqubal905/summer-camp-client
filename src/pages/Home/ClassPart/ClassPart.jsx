@@ -9,7 +9,7 @@ const ClassPart = () => {
 
     
     const {data: allClasses = [], refetch} = useQuery(['allClasses'], async() => {
-        const res =  await fetch('http://localhost:5000/myclass')
+        const res =  await fetch('https://summer-camp-school-server-side-pi.vercel.app/myclass')
         return res.json()
         
     })

@@ -7,7 +7,7 @@ const EnrolledClass = () => {
 const {user} = useContext(AuthContext)
 
     const {data: payments = [], refetch} = useQuery(['payment'], async() => {
-        const res =  await fetch('http://localhost:5000/payment')
+        const res =  await fetch('https://summer-camp-school-server-side-pi.vercel.app/payment')
         return res.json()
     })
 

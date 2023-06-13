@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 const ManageClasses = () => {
 
     const {data: classesData = [], refetch} = useQuery(['classesData'], async() => {
-        const res =  await fetch('http://localhost:5000/myclass')
+        const res =  await fetch('https://summer-camp-school-server-side-pi.vercel.app/myclass')
         return res.json()
     })
   
@@ -17,7 +17,7 @@ const ManageClasses = () => {
     // const [classesData, setClassesData] = useState([]);
     // const [loading, setLoading] = useState(true);
     // useEffect(() => {
-    //   fetch("http://localhost:5000/myclass")
+    //   fetch("https://summer-camp-school-server-side-pi.vercel.app/myclass")
     //     .then((res) => res.json())
     //     .then((data) => {
     //       setClassesData(data);
@@ -31,7 +31,7 @@ const ManageClasses = () => {
 
 
     const handleApprove = classData =>{
-        fetch(`http://localhost:5000/myclass/status/${classData._id}`,{
+        fetch(`https://summer-camp-school-server-side-pi.vercel.app/myclass/status/${classData._id}`,{
          method: 'PATCH'
      })
      .then(res => res.json())
@@ -52,7 +52,7 @@ const ManageClasses = () => {
 
 
      const handleDenied = classData =>{
-        fetch(`http://localhost:5000/myclass/denied/${classData._id}`,{
+        fetch(`https://summer-camp-school-server-side-pi.vercel.app/myclass/denied/${classData._id}`,{
          method: 'PATCH'
      })
      .then(res => res.json())
