@@ -1,12 +1,14 @@
-import React from 'react';
+
 import Banner from '../Banner/Banner';
 import InstructorPart from '../InstractorPart/InstructorPart';
+import ClassPart from '../ClassPart/ClassPart';
 
 const Home = () => {
     return (
         <div>
             <Banner></Banner>
-            {/* <InstructorPart></InstructorPart> */}
+            <ClassPart></ClassPart>
+            <InstructorPart></InstructorPart>
         </div>
     );
 };

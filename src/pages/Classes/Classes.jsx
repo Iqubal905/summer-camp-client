@@ -1,6 +1,7 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 import ClassCard from './ClassCard/ClassCard';
+import { Bounce, Fade, Rotate, Slide, Zoom } from 'react-awesome-reveal';
 
 const Classes = () => {
 
@@ -20,13 +21,16 @@ console.log(approveClasses);
             <h2 className='font-bold text-center text-3xl pt-24 pb-8  ' >Total Class</h2>
             <div className='grid grid-cols-3 gap-10 px-20'>
             
-            {
+        <Zoom>
+            
+        {
  
-                approveClasses.map(approveClass => <ClassCard
-                 key={approveClass.id}
-                 approveClass={approveClass}
-                 ></ClassCard>)
-             }  
+ approveClasses.map(approveClass => <ClassCard
+  key={approveClass.id}
+  approveClass={approveClass}
+  ></ClassCard>)
+} 
+            </Zoom> 
             
          </div>
         </div>

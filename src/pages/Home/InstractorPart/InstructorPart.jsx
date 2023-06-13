@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import InstructorCard from '../../Instructor/instructorCard/InstructorCard';
+import { Fade } from 'react-awesome-reveal';
 
 const InstructorPart = () => {
 
@@ -19,16 +20,19 @@ const InstructorPart = () => {
 
     return (
         <div>
-            
+               <h2 className='font-bold text-center text-3xl pt-24 pb-8  ' >Popular Instructo</h2>
             <div className='grid grid-cols-3 gap-10 px-20'>
             
-            {
+           <Fade>
+
+           {
  
-                 instructors.slice(0, 6).map(instructor => <InstructorCard
-                 key={instructor.id}
-                 instructor={instructor}
-                 ></InstructorCard>)
-             }  
+ instructors.slice(0, 6).map(instructor => <InstructorCard
+ key={instructor.id}
+ instructor={instructor}
+ ></InstructorCard>)
+}  
+           </Fade>
             
          </div>
 
