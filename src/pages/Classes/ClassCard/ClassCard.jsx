@@ -4,9 +4,15 @@ import Swal from 'sweetalert2';
 import { AuthContext } from '../../../provider/AuthProvider';
 import { Link, Navigate } from 'react-router-dom';
 import Login from '../../Login/Login';
+import useAdmin from '../../../hooks/useAdmin';
+import useInstructorr from '../../../hooks/useInstructorr';
 
 const ClassCard = ({approveClass}) => {
     const {user} =useContext(AuthContext)
+     const{isAdmin} = useAdmin()
+     const {isInstructor} = useInstructorr()
+
+
     const {className,  instructorName, availableSeats, price, image} = approveClass 
    console.log(approveClass);
 
@@ -38,7 +44,7 @@ const handlebooked = () =>{
 
     return (
         <div className=''>
-           <div className="card card-compact w-96 bg-base-100 shadow-xl ">
+           <div className="card card-compact w-96 bg-base-100 shadow-xl"   style={{ backgroundColor: availableSeats == 0 ? 'red' : 'none' }}>
 
   <figure><img src={image} alt="" /></figure>
   <div className="card-body">
@@ -46,9 +52,12 @@ const handlebooked = () =>{
     <p className='text-xl'> <span className=' font-bold pr-2'>Instructor Name:</span>{instructorName}</p>
     <p className='text-xl'> <span className=' font-bold pr-2'>Price:</span>${price}</p>
     <p className='text-xl'><span className='font-bold pr-2'>Available Seats:</span>{availableSeats}</p>
+
+
+
    {
     user?
-    <button onClick={()=>handlebooked()} className="btn btn-outline btn-success btn-sm">Select</button> :
+    <button onClick={()=>handlebooked()} className="btn btn-outline btn-success btn-sm"   disabled={!isAdmin || !isInstructor || availableSeats == 0 } >Select</button> :
   <Link className='btn btn-outline btn-success btn-sm' to='/login'><button className="">Select</button></Link>
     
    }
