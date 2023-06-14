@@ -20,7 +20,7 @@ const Instructor = () => {
       
       <div className='text-center pt-24'>
             <h3 className="text-3xl uppercase ">Our All Instructor</h3>
-            <p className="text-yellow-200"> You can know about our instructor </p>
+            <p className=" text-slate-400"> You can know about our instructor </p>
             <div className='divider mt-0 mb-6'></div>
             </div>
          <div className='grid grid-cols-3 gap-10 px-20'>

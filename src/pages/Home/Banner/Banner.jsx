@@ -7,6 +7,7 @@ import './Banner.css'
 const Banner = () => {
     return (
         <div>
+         
             <div className="carousel   max-h-screen ">
   <div id="slide1" className="carousel-item relative w-full slider-container">
     <img src={slider1} className="w-full" />

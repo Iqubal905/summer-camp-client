@@ -53,7 +53,8 @@ formData.append('image', data.image[0])
 
 
     return (
-        <div className='card   flex w-full max-w-sm shadow-2xl bg-base-100 p-0 m-0'>
+      <div className='md:pl-60'>
+          <div className='card   flex w-full max-w-sm shadow-2xl bg-base-100 '>
             <h2 className='text-4xl text-center'>Add Class</h2>
            
             <form onSubmit={handleSubmit(onSubmit)} className='w-96 p-6'>
@@ -131,6 +132,7 @@ formData.append('image', data.image[0])
       </form>
 
         </div>
+      </div>
     );
 };
 

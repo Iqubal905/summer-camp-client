@@ -20,7 +20,12 @@ const InstructorPart = () => {
 
     return (
         <div>
-               <h2 className='font-bold text-center text-3xl pt-24 pb-8  ' >Popular Instructo</h2>
+                <div className='text-center  pt-16'>
+                <div className='divider p-0 m-0'></div>
+            <h3 className="text-3xl uppercase ">Popular Instructor</h3>
+            <p className=" text-slate-400"> You can know about our popular instructor</p>
+            <div className='divider mt-0 mb-6'></div>
+            </div>
             <div className='grid grid-cols-3 gap-10 px-20'>
             
            <Fade>

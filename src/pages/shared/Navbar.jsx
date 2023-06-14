@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import img from '../../assets/slider/sigi in.webp'
+import img from '../../assets/slider/logo.png'
 import { Link} from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 
@@ -50,6 +50,9 @@ const navItems = <>
        {navItems}
       </ul>
     </div>
+    <div className="w-12 h-12 mt-5 ">
+      <img src={img} alt="Toy Car Logo"  className='rounded-full ' />
+    </div>
     <a className="btn btn-ghost normal-case text-xl">ArtCamp Hub</a>
   </div>
   <div className="navbar-center hidden lg:flex">
@@ -69,7 +72,7 @@ const navItems = <>
        
   <div className="tooltip tooltip-bottom" data-tip={user.displayName}>
   <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-        <div className="w-24 rounded-full">
+        <div className="w-24 border rounded-full">
         
         <img src={user.photoURL} referrerPolicy='no-referrer' alt="" />
         </div>
