@@ -26,7 +26,7 @@ const InstructorPart = () => {
             <p className=" text-slate-400"> You can know about our popular instructor</p>
             <div className='divider mt-0 mb-6'></div>
             </div>
-            <div className='grid grid-cols-3 gap-10 px-20'>
+            <div className='grid md:grid-cols-3 gap-10 md:px-20'>
             
            <Fade>
 

@@ -1,0 +1,19 @@
+.dark-mode{
+    background-color: black;
+    color: white;
+}
+.light-mode{
+    background-color: white;
+    color: black;
+}
+.relative-my{
+    position: relative;
+    
+}
+.absolute-my{
+    position: absolute;
+    top: 84px;
+    right: 5px;
+    
+    
+}

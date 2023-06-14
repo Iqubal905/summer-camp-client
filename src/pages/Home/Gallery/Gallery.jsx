@@ -29,7 +29,7 @@ const Gallery = () => {
 
 
         
-        <div  className='grid  grid-cols-4 gap-4'>
+        <div  className='grid  md:grid-cols-4 gap-4'>
 
           <Fade cascade>
           <img src={img1} alt="" />
