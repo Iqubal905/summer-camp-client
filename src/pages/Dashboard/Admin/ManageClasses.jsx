@@ -13,23 +13,6 @@ const ManageClasses = () => {
   
 
 
-  
-    // const [classesData, setClassesData] = useState([]);
-    // const [loading, setLoading] = useState(true);
-    // useEffect(() => {
-    //   fetch("https://summer-camp-school-server-side-pi.vercel.app/myclass")
-    //     .then((res) => res.json())
-    //     .then((data) => {
-    //       setClassesData(data);
-    //       console.log(data);
-    //       setLoading(false);
-    //     });
-    // }, []);
-  
-    
-
-
-
     const handleApprove = classData =>{
         fetch(`https://summer-camp-school-server-side-pi.vercel.app/myclass/status/${classData._id}`,{
          method: 'PATCH'

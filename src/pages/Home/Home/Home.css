@@ -15,5 +15,13 @@
     top: 84px;
     right: 5px;
     
-    
 }
+@media only screen and (max-width: 600px) {
+    .absolute-my{
+        position: absolute;
+        top: 30px;
+        right: 5px;
+        z-index: 2;
+        
+    }
+  }

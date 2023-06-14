@@ -104,13 +104,13 @@ const SignUp = () => {
   <label className="label">
     <span className="label-text">Password</span>
   </label>
-  <input type="text" {...register("password", {
+  <input type="password" {...register("password", {
     
     required: true,
     minLength: 6,
     pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/
     
-    })} name="password" placeholder="Phone Number" className="input input-bordered w-full max-w-xs" />
+    })} name="password" placeholder="Password" className="input input-bordered w-full max-w-xs" />
   
   </div>
   {errors.password?.type === 'required' && <p className="text-red-600">Password is required</p>}
@@ -121,7 +121,7 @@ const SignUp = () => {
   <label className="label">
     <span className="label-text">Confirm Pasword</span>
   </label>
-  <input type="text" {...register("conPass", { required: true })} name="conPass" placeholder="Confirm Password" className="input input-bordered w-full max-w-xs" />
+  <input type="password" {...register("conPass", { required: true })} name="conPass" placeholder="Confirm Password" className="input input-bordered w-full max-w-xs" />
     <h2 className=' text-red-400 text-2xl'>{conPass}</h2>
   </div>
   <div className="form-control w-full ">

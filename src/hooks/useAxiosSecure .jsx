@@ -4,9 +4,13 @@ import { useNavigate } from 'react-router-dom';
 
 import useAuth from './useAuth';
 
+
+
+
 const axiosSecure = axios.create({
   baseURL: 'https://summer-camp-school-server-side-pi.vercel.app', 
 });
+
 
 const useAxiosSecure = () => {
   const { logOut } = useAuth()
@@ -26,6 +30,7 @@ const useAxiosSecure = () => {
     axiosSecure.interceptors.response.use(
       (response) => response,
       async (error) => {
+
         if (error.response && (error.response.status === 401 || error.response.status === 403)) {
           await logOut();
           navigate('/login');
@@ -33,6 +38,8 @@ const useAxiosSecure = () => {
         return Promise.reject(error);
       }
     );
+
+
   }, [logOut, navigate, axiosSecure]);
 
   return [axiosSecure];

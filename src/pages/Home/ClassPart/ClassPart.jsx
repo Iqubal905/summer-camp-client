@@ -18,7 +18,7 @@ const ClassPart = () => {
 
   const allClassSort =   allClasses.sort((a, b) => b.availableSeats - a.availableSeats)
 
-   console.log(allClassSort);
+   
 
 
 

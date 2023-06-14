@@ -76,7 +76,7 @@ const handleLogIn = data =>{
             <span className="label-text">Password</span>
           </label>
          
-          <input type="text" {...register("password", { required: true })} name="password" placeholder="Phone Number" className="input input-bordered w-full max-w-xs" />
+          <input type="password" {...register("password", { required: true })} name="password" placeholder="PassWord" className="input input-bordered w-full max-w-xs" />
           
           </div>
           <p className=' text-red-500 '>{err}</p>

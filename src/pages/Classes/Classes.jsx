@@ -14,7 +14,7 @@ const Classes = () => {
 
     const approveClasses = allClass.filter((eachClass) => eachClass.status === 'Approve');
   
-console.log(approveClasses);
+
 
     return (
         <div>
