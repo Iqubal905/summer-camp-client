@@ -16,6 +16,7 @@ import Classes from "../pages/Classes/Classes";
 import Payment from "../pages/Payment/Payment";
 import InstructorRoute from "./InstructorRoute";
 import AdminRoute from "./adminRoute";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 
  export const router = createBrowserRouter([
@@ -82,6 +83,6 @@ import AdminRoute from "./adminRoute";
       },
       {
         path:'*',
-         element: <Error></Error> 
+         element: <ErrorPage></ErrorPage> 
      }
   ]);
