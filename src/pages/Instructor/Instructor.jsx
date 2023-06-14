@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import InstructorCard from './instructorCard/InstructorCard';
-import { Fade } from 'react-awesome-reveal';
+import { Fade, Zoom } from 'react-awesome-reveal';
 
 const Instructor = () => {
 
@@ -17,10 +17,15 @@ const Instructor = () => {
     }, [])
     return (
        <div>
-        <h2 className='font-bold text-center text-3xl pt-24 pb-8  ' >All Instructor</h2>
+      
+      <div className='text-center pt-24'>
+            <h3 className="text-3xl uppercase ">Our All Instructor</h3>
+            <p className="text-yellow-200"> You can know about our instructor </p>
+            <div className='divider mt-0 mb-6'></div>
+            </div>
          <div className='grid grid-cols-3 gap-10 px-20'>
             
-          <Fade>
+          <Zoom>
           {
  
  instructors.map(instructor => <InstructorCard
@@ -28,7 +33,7 @@ const Instructor = () => {
  instructor={instructor}
  ></InstructorCard>)
 }
-            </Fade>  
+            </Zoom>  
             
          </div>
        </div>

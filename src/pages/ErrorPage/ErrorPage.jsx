@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import img '../../assets/slider/err.jpg'
+import img from'../../assets/slider/err.jpg'
 const ErrorPage = () => {
     return (
         <div className='grid justify-center'>

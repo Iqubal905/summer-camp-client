@@ -1,7 +1,8 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 import ClassCard from './ClassCard/ClassCard';
-import { Bounce, Fade, Rotate, Slide, Zoom } from 'react-awesome-reveal';
+import {  Zoom } from 'react-awesome-reveal';
+
 
 const Classes = () => {
 
@@ -17,9 +18,14 @@ console.log(approveClasses);
 
     return (
         <div>
+
+            <div className='text-center pt-24'>
+            <h3 className="text-3xl uppercase ">Our All Class</h3>
+            <p className="text-yellow-200"> You can select your choicefull class from here </p>
+            <div className='divider mt-0 mb-6'></div>
+            </div>
            
-            <h2 className='font-bold text-center text-3xl pt-24 pb-8  ' >Total Class</h2>
-            <div className='grid grid-cols-3 gap-10 px-20'>
+          <div className='grid grid-cols-3 gap-10 px-20'>
             
         <Zoom>
             
