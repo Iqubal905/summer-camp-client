@@ -79,5 +79,9 @@ import AdminRoute from "./adminRoute";
             element: <EnrolledClass></EnrolledClass>
           },
         ], 
-      }
+      },
+      {
+        path:'*',
+         element: <Error></Error> 
+     }
   ]);
