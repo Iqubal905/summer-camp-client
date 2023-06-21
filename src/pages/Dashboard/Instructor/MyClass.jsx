@@ -7,7 +7,7 @@ const MyClass = () => {
   const [classesData, setClassesData] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch("https://summer-camp-school-server-side-pi.vercel.app/myclass")
+    fetch("http://localhost:5000/myclass")
       .then((res) => res.json())
       .then((data) => {
         setClassesData(data)

@@ -24,7 +24,7 @@ console.log( isAdmin, isInstructor);
 
 const handlebooked = () =>{
 
-    fetch('https://summer-camp-school-server-side-pi.vercel.app/booked', {
+    fetch('http://localhost:5000/booked', {
         method: 'POST', 
         headers: {
             'content-type': 'application/json'
@@ -43,7 +43,7 @@ const handlebooked = () =>{
 
 
     return (
-        <div className="card card-compact w-96 bg-base-100 shadow-xl"   style={{ backgroundColor: availableSeats == 0 ? 'red' : 'none' }}>
+        <div className="card center card-compact w-96 bg-base-100 shadow-xl"   style={{ backgroundColor: availableSeats == 0 ? 'red' : 'none' }}>
 
   <figure><img src={image} alt="" /></figure>
   <div className="card-body">

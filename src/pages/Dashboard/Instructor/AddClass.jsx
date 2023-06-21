@@ -27,10 +27,10 @@ formData.append('image', data.image[0])
     if(imgResponse.success){
       const imgUrl = imgResponse.data.display_url
       const {className, instructorName, instructorEmail, availableSeats, price} =data
-      const newItem = {className, instructorName, instructorEmail, availableSeats: parseFloat(availableSeats), price: parseFloat(price), image:imgUrl, status:'Pending'}
+      const newItem = {className, instructorName, instructorEmail, enrollSeats: parseFloat(0), availableSeats: parseFloat(availableSeats), price: parseFloat(price), image:imgUrl, status:'Pending'}
       console.log(newItem);
 
-      fetch('https://summer-camp-school-server-side-pi.vercel.app/class', {
+      fetch('http://localhost:5000/class', {
         method: 'POST', 
         headers: {
             'content-type': 'application/json'

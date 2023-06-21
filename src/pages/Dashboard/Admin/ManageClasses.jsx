@@ -7,14 +7,14 @@ import Swal from 'sweetalert2';
 const ManageClasses = () => {
 
     const {data: classesData = [], refetch} = useQuery(['classesData'], async() => {
-        const res =  await fetch('https://summer-camp-school-server-side-pi.vercel.app/myclass')
+        const res =  await fetch('http://localhost:5000/myclass')
         return res.json()
     })
   
 
 
     const handleApprove = classData =>{
-        fetch(`https://summer-camp-school-server-side-pi.vercel.app/myclass/status/${classData._id}`,{
+        fetch(`http://localhost:5000/myclass/status/${classData._id}`,{
          method: 'PATCH'
      })
      .then(res => res.json())
@@ -35,7 +35,7 @@ const ManageClasses = () => {
 
 
      const handleDenied = classData =>{
-        fetch(`https://summer-camp-school-server-side-pi.vercel.app/myclass/denied/${classData._id}`,{
+        fetch(`http://localhost:5000/myclass/denied/${classData._id}`,{
          method: 'PATCH'
      })
      .then(res => res.json())

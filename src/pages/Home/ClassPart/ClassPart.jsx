@@ -9,7 +9,7 @@ const ClassPart = () => {
 
     
     const {data: allClasses = [], refetch} = useQuery(['allClasses'], async() => {
-        const res =  await fetch('https://summer-camp-school-server-side-pi.vercel.app/myclass')
+        const res =  await fetch('http://localhost:5000/myclass')
         return res.json()
         
     })
@@ -33,7 +33,7 @@ const ClassPart = () => {
             <p className=" text-slate-400"> Know about our top class and select  </p>
             <div className='divider mt-0 mb-6'></div>
             </div>
-            <div className='grid md:grid-cols-3 gap-10 md:px-20'>
+            <div className='grid justify-items-center md:grid-cols-3 gap-10 md:px-20'>
             
 <Fade>
 

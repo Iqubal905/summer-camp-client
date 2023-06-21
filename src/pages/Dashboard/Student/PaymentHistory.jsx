@@ -21,47 +21,26 @@ console.log(myPaymentsClass);
     return (
         <div>
             <div>
-        <h2 className="text-4xl font-bold text-center "> All Payment  Class : {myPaymentsClass.length}</h2>
+        <h2 className="text-4xl font-bold text-center ">  Payment  history : {myPaymentsClass.length}</h2>
         <div className="divider"></div> 
         <div className="overflow-x-auto">
-          <table className="table bg-slate-500 text-white">
-            {/* head */}
-            <thead>
-              <tr className=" text-sm  bg-slate-800 text-slate-200">
-                <th>No</th>
-                <th>Class Name</th>
-               <th>Price</th>
-               <th>Transaction Id</th>
-               <th>Date</th>
-                </tr>
-            </thead>
-            <tbody>
-              
-  
-  {
+        {
 
 
 
 myPaymentsClass?.map((eachSelectClass, index) =>
       <tr key={eachSelectClass._id} >
 
-            <td className=" text-lg ">{index + 1}</td>
-          <td>{eachSelectClass.name}</td>
-          <td>{eachSelectClass.price}</td>
-          <td>${eachSelectClass.transactionId}</td>
-          <td>${eachSelectClass.date}</td>
+            <td className=" text-lg ">({index + 1})</td>
+      
+          <td>${eachSelectClass.price}</td>
+          <td>Id- {eachSelectClass.transactionId}</td>
+          <td>Date- {eachSelectClass.date}</td>
             
-          
-           
-        
-    
           </tr>
   )
   }
   
-            </tbody>
-        
-          </table>
         </div>
       </div>
         </div>

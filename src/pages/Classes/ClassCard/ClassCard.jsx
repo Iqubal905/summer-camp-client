@@ -14,18 +14,18 @@ const ClassCard = ({approveClass}) => {
     const [isInstructor] = useInstructorr()
 
 
-console.log( isAdmin, isInstructor);
-    const {className,  instructorName, availableSeats, price, image} = approveClass 
+
+    const {className,  instructorName, availableSeats, price, image, _id, enrollSeats} = approveClass 
 
    console.log(approveClass);
 
-   const newBooked = {className, instructorName, email:user?.email, availableSeats: parseFloat(availableSeats), price: parseFloat(price), image}
+   const newBooked = {_id, className, instructorName, email:user?.email, availableSeats: parseFloat(availableSeats), price: parseFloat(price), image}
    console.log(newBooked);
 
 
 const handlebooked = () =>{
 
-    fetch('https://summer-camp-school-server-side-pi.vercel.app/booked', {
+    fetch('http://localhost:5000/booked', {
         method: 'POST', 
         headers: {
             'content-type': 'application/json'
@@ -55,6 +55,7 @@ const handlebooked = () =>{
     <p className='text-xl'> <span className=' font-bold pr-2'>Instructor Name:</span>{instructorName}</p>
     <p className='text-xl'> <span className=' font-bold pr-2'>Price:</span>${price}</p>
     <p className='text-xl'><span className='font-bold pr-2'>Available Seats:</span>{availableSeats}</p>
+    <p className='text-xl'><span className='font-bold pr-2'>Enroll Seats:</span>{enrollSeats}</p>
 
 
 

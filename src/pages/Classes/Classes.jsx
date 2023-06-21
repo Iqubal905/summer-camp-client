@@ -7,7 +7,7 @@ import {  Zoom } from 'react-awesome-reveal';
 const Classes = () => {
 
     const {data: allClass = [], refetch} = useQuery(['allClass'], async() => {
-        const res =  await fetch('https://summer-camp-school-server-side-pi.vercel.app/myclass')
+        const res =  await fetch('http://localhost:5000/myclass')
         return res.json()
     })
 

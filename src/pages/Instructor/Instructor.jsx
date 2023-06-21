@@ -7,7 +7,7 @@ const Instructor = () => {
       const [instructors, setInstructors] = useState([]);
     const [loading, setLoading] = useState(true);
     useEffect(() => {
-        fetch('https://summer-camp-school-server-side-pi.vercel.app/instructor')
+        fetch('http://localhost:5000/instructor')
             .then(res => res.json())
             .then(data => {
                 setInstructors(data)
@@ -23,7 +23,7 @@ const Instructor = () => {
             <p className=" text-slate-400"> You can know about our instructor </p>
             <div className='divider mt-0 mb-6'></div>
             </div>
-         <div className='grid md:grid-cols-3 gap-10 md:px-20'>
+         <div className='grid justify-items-center md:grid-cols-3 gap-10 md:px-20'>
             
           <Zoom>
           {

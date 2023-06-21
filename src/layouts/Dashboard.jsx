@@ -13,7 +13,7 @@ const Dashboard = () => {
   const [isAdmin] = useAdmin()
   const [isInstructor] = useInstructorr()
 
-console.log(isAdmin,isInstructor );
+
 
 
     return (
@@ -54,6 +54,7 @@ console.log(isAdmin,isInstructor );
 <li><NavLink to='/'><FaHome></FaHome>Home</NavLink></li>
             <li><NavLink to='/dashboard/selectClass'><BsBookmarkCheckFill></BsBookmarkCheckFill>Selected Class</NavLink></li>
            <li><NavLink to='/dashboard/enrollClass'><FaFrownOpen></FaFrownOpen>Enrolled Class</NavLink></li>
+           <li><NavLink to='/dashboard/paymentHistory'><FaFrownOpen></FaFrownOpen>Payment History</NavLink></li>
           
     </div>
       )
